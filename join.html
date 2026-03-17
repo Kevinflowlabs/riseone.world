@@ -22,108 +22,146 @@
 <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
 
 <style>
-  /* ── RISE native form styles ── */
-  .rise-form-wrap {
-    background: #000;
-    border-radius: 4px;
-    padding: 20px;
-    max-width: 630px;
+  /* ── Mailchimp form styles ── */
+  .fl-form-wrap {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 36px 32px;
+    max-width: 600px;
     margin: 0 auto;
-    color: #fff;
-  }
-
-  .rise-form-wrap .form-group {
-    margin-bottom: 16px;
-  }
-
-  .rise-form-wrap label {
-    display: block;
-    margin-bottom: 6px;
     font-family: 'Lato', sans-serif;
-    font-size: 14px;
     color: #fff;
   }
 
-  .rise-form-wrap input[type="text"],
-  .rise-form-wrap input[type="email"] {
+  .fl-form-wrap h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .fl-form-wrap .fl-required-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 24px;
+  }
+
+  .fl-form-wrap .fl-required-note span {
+    color: #ce7028;
+  }
+
+  .fl-field {
+    margin-bottom: 18px;
+  }
+
+  .fl-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+    color: #ddd;
+    text-transform: uppercase;
+  }
+
+  .fl-field label .req {
+    color: #ce7028;
+    margin-left: 3px;
+  }
+
+  .fl-field input[type="text"],
+  .fl-field input[type="email"],
+  .fl-field input[type="tel"],
+  .fl-field select {
     width: 100%;
-    padding: 10px 14px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 4px;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     box-sizing: border-box;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
-  .rise-form-wrap input[type="text"]:focus,
-  .rise-form-wrap input[type="email"]:focus {
+  .fl-field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23aaa' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-color: rgba(255,255,255,0.07);
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .fl-field select option {
+    background: #111;
+    color: #fff;
+  }
+
+  .fl-field input::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .fl-field input:focus,
+  .fl-field select:focus {
     outline: none;
     border-color: #ce7028;
+    background: rgba(255,255,255,0.1);
   }
 
-  .rise-form-wrap input[type="text"]::placeholder,
-  .rise-form-wrap input[type="email"]::placeholder {
-    color: #666;
+  .fl-row {
+    display: flex;
+    gap: 14px;
   }
 
-  .rise-form-wrap .btn-rise {
-    background-color: #ce7028;
+  .fl-row .fl-field {
+    flex: 1;
+  }
+
+  .fl-submit-btn {
+    width: 100%;
+    padding: 13px 18px;
+    background: #ce7028;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 12px 18px;
+    border-radius: 8px;
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.2s, transform 0.1s;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.1s;
   }
 
-  .rise-form-wrap .btn-rise:hover {
-    background-color: #e07e30;
-  }
+  .fl-submit-btn:hover  { background: #e07e30; }
+  .fl-submit-btn:active { transform: scale(0.98); }
+  .fl-submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
 
-  .rise-form-wrap .btn-rise:active {
-    transform: scale(0.98);
-  }
-
-  .rise-form-wrap .btn-rise:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
-  /* Success / Error messages */
-  #rise-form-msg {
+  #fl-msg {
     display: none;
-    margin-top: 16px;
+    margin-top: 18px;
     padding: 12px 16px;
-    border-radius: 4px;
-    font-family: 'Lato', sans-serif;
+    border-radius: 8px;
     font-size: 14px;
     text-align: center;
   }
 
-  #rise-form-msg.success {
-    background: #1a3a1a;
-    border: 1px solid #2a6a2a;
-    color: #6fcf6f;
-  }
+  #fl-msg.success { background: rgba(50,120,50,0.35); border: 1px solid #3a8a3a; color: #8fe88f; }
+  #fl-msg.error   { background: rgba(120,40,40,0.35); border: 1px solid #8a3a3a; color: #e88f8f; }
 
-  #rise-form-msg.error {
-    background: #3a1a1a;
-    border: 1px solid #6a2a2a;
-    color: #cf6f6f;
-  }
+  .fl-hp { position: absolute; left: -5000px; }
 
-  .required-star {
-    color: #ce7028;
-    margin-left: 3px;
+  @media (max-width: 480px) {
+    .fl-row { flex-direction: column; gap: 0; }
+    .fl-form-wrap { padding: 24px 18px; }
   }
 </style>
 </head>
@@ -163,80 +201,69 @@
 
       <div class="row">
 
-        <!-- ── Native form replaces broken iframe ── -->
-        <div class="rise-form-wrap">
+        <!-- ── Mailchimp form ── -->
+        <div class="fl-form-wrap">
+          <h2>Subscribe</h2>
+          <p class="fl-required-note"><span>*</span> indicates required</p>
 
-          <form id="rise-signup-form" novalidate>
+          <form id="fl-mc-form" novalidate>
 
-            <!-- First Name (required) -->
-            <div class="form-group">
-              <label for="rise_first_name">First Name<span class="required-star">*</span></label>
-              <input
-                type="text"
-                id="rise_first_name"
-                name="first_name"
-                placeholder="Please enter your first name."
-                required
-              />
+            <!-- Email -->
+            <div class="fl-field">
+              <label for="fl-EMAIL">Email Address <span class="req">*</span></label>
+              <input type="email" id="fl-EMAIL" name="EMAIL" placeholder="you@example.com" required />
             </div>
 
-            <!-- Last Name -->
-            <div class="form-group">
-              <label for="rise_last_name">Last Name</label>
-              <input
-                type="text"
-                id="rise_last_name"
-                name="last_name"
-                placeholder="Please enter your last name."
-              />
+            <!-- First / Last -->
+            <div class="fl-row">
+              <div class="fl-field">
+                <label for="fl-FNAME">First Name</label>
+                <input type="text" id="fl-FNAME" name="FNAME" placeholder="First" />
+              </div>
+              <div class="fl-field">
+                <label for="fl-LNAME">Last Name</label>
+                <input type="text" id="fl-LNAME" name="LNAME" placeholder="Last" />
+              </div>
             </div>
 
-            <!-- Email (required) -->
-            <div class="form-group">
-              <label for="rise_email">Email<span class="required-star">*</span></label>
-              <input
-                type="email"
-                id="rise_email"
-                name="email"
-                placeholder="Please enter your email."
-                required
-              />
+            <!-- Phone -->
+            <div class="fl-field">
+              <label for="fl-PHONE">Phone Number</label>
+              <input type="tel" id="fl-PHONE" name="PHONE" placeholder="+1 000 000 0000" />
             </div>
 
-            <!-- Location -->
-            <div class="form-group">
-              <label for="rise_location">Location</label>
-              <input
-                type="text"
-                id="rise_location"
-                name="address_line_1"
-                placeholder="Please enter your location"
-              />
+            <!-- Training type dropdown -->
+            <div class="fl-field">
+              <label for="fl-TRAINTYPE">What are you interested in?</label>
+              <select id="fl-TRAINTYPE" name="TRAINTYPE">
+                <option value="">— Select —</option>
+                <option value="Children's Intuition Training">Children's Intuition Training</option>
+                <option value="Adult Intuition Training">Adult Intuition Training</option>
+                <option value="Teacher's Intuition Training">Teacher's Intuition Training</option>
+              </select>
             </div>
 
-            <!-- What drives your movement -->
-            <div class="form-group">
-              <label for="rise_line">What drives your movement? Tell us more!</label>
-              <input
-                type="text"
-                id="rise_line"
-                name="line"
-                placeholder="Please enter your message"
-              />
+            <!-- Area of interest -->
+            <div class="fl-field">
+              <label for="fl-TRAINING">What area are you most interested in?</label>
+              <input type="text" id="fl-TRAINING" name="TRAINING" placeholder="Tell us more…" />
             </div>
 
-            <!-- Submit -->
-            <div class="form-group">
-              <button type="submit" class="btn-rise" id="rise-submit-btn">Submit</button>
+            <!-- Mailchimp honeypot — do not remove -->
+            <div class="fl-hp" aria-hidden="true">
+              <input type="text" name="b_a54339c63a295667b5d2377eb_e2383209d4" tabindex="-1" value="" />
             </div>
+
+            <!-- Hidden tag -->
+            <input type="hidden" name="tags" value="4048475" />
+
+            <button type="submit" class="fl-submit-btn" id="fl-submit">Subscribe</button>
 
           </form>
 
-          <!-- Feedback message -->
-          <div id="rise-form-msg"></div>
-
+          <div id="fl-msg"></div>
         </div>
-        <!-- ── end native form ── -->
+        <!-- ── end Mailchimp form ── -->
 
       </div>
     </div>
@@ -275,88 +302,81 @@
 
 <script>
 (function () {
-  // SendGrid form config — pulled from your existing window.form object
-  var SUBMIT_URL  = "https://api-1.sg-form.com/signup";
-  var LIST_ID     = "88a064be-0f30-4b96-9a6e-e52fd82f8ee3";
-  var USER_ID     = 41765990;
-  var FORM_ID     = "2b6e62cf-79c8-11ef-8cd6-52aa82ddac22";
+  var ACTION = "https://Flowlabs.us6.list-manage.com/subscribe/post?u=a54339c63a295667b5d2377eb&id=e2383209d4&f_id=00be1ce2f0";
 
-  var form    = document.getElementById("rise-signup-form");
-  var btn     = document.getElementById("rise-submit-btn");
-  var msgBox  = document.getElementById("rise-form-msg");
+  var form   = document.getElementById("fl-mc-form");
+  var btn    = document.getElementById("fl-submit");
+  var msgBox = document.getElementById("fl-msg");
 
   function showMsg(text, type) {
-    msgBox.textContent = text;
-    msgBox.className   = type;   // "success" or "error"
+    msgBox.textContent   = text;
+    msgBox.className     = type;
     msgBox.style.display = "block";
   }
 
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  function validEmail(e) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
   }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var firstName = document.getElementById("rise_first_name").value.trim();
-    var email     = document.getElementById("rise_email").value.trim();
-
-    // Client-side validation
-    if (!firstName) {
-      showMsg("Please enter your first name.", "error");
-      document.getElementById("rise_first_name").focus();
-      return;
-    }
-    if (!email || !validateEmail(email)) {
+    var email = document.getElementById("fl-EMAIL").value.trim();
+    if (!email || !validEmail(email)) {
       showMsg("Please enter a valid email address.", "error");
-      document.getElementById("rise_email").focus();
+      document.getElementById("fl-EMAIL").focus();
       return;
     }
-
-    // Build payload matching SendGrid's expected format
-    var payload = {
-      list_ids: [LIST_ID],
-      contacts: [{
-        first_name:    firstName,
-        last_name:     document.getElementById("rise_last_name").value.trim(),
-        email:         email,
-        address_line_1: document.getElementById("rise_location").value.trim(),
-        custom_fields: {
-          line: document.getElementById("rise_line").value.trim()
-        }
-      }]
-    };
 
     btn.disabled    = true;
     btn.textContent = "Submitting…";
     msgBox.style.display = "none";
 
-    fetch(SUBMIT_URL, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify(payload)
-    })
-    .then(function (res) {
-      if (res.ok || res.status === 202) {
-        showMsg("Thanks for signing up!", "success");
+    // Mailchimp requires JSONP for cross-origin submission
+    var url = ACTION.replace("/post?", "/post-json?") + "&c=flMcCallback";
+
+    var params = [
+      "EMAIL="     + encodeURIComponent(email),
+      "FNAME="     + encodeURIComponent(document.getElementById("fl-FNAME").value.trim()),
+      "LNAME="     + encodeURIComponent(document.getElementById("fl-LNAME").value.trim()),
+      "PHONE="     + encodeURIComponent(document.getElementById("fl-PHONE").value.trim()),
+      "TRAINTYPE=" + encodeURIComponent(document.getElementById("fl-TRAINTYPE").value),
+      "TRAINING="  + encodeURIComponent(document.getElementById("fl-TRAINING").value.trim()),
+      "tags=4048475",
+      "b_a54339c63a295667b5d2377eb_e2383209d4=" // honeypot — keep empty
+    ];
+
+    window.flMcCallback = function (data) {
+      btn.disabled    = false;
+      btn.textContent = "Subscribe";
+      if (data.result === "success") {
+        showMsg("🎉 Thanks for subscribing!", "success");
         form.reset();
       } else {
-        return res.text().then(function (body) {
-          throw new Error("Server responded with " + res.status + ": " + body);
-        });
+        var clean = (data.msg || "Something went wrong. Please try again.").replace(/<[^>]+>/g, "");
+        if (clean.toLowerCase().indexOf("already subscribed") > -1) {
+          showMsg("You're already on the list!", "success");
+        } else {
+          showMsg(clean, "error");
+        }
       }
-    })
-    .catch(function (err) {
-      console.error("Rise signup error:", err);
-      showMsg(
-        "Something went wrong — please try again or email us directly.",
-        "error"
-      );
-    })
-    .finally(function () {
+      var old = document.getElementById("fl-mc-script");
+      if (old) old.parentNode.removeChild(old);
+    };
+
+    var script = document.createElement("script");
+    script.id  = "fl-mc-script";
+    script.src = url + "&" + params.join("&");
+    document.body.appendChild(script);
+
+    // Timeout fallback
+    setTimeout(function () {
       btn.disabled    = false;
-      btn.textContent = "Submit";
-    });
+      btn.textContent = "Subscribe";
+      if (msgBox.style.display === "none") {
+        showMsg("Request timed out. Please try again.", "error");
+      }
+    }, 8000);
   });
 })();
 </script>
