@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
@@ -9,123 +8,358 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!--[if lt IE 9]> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <![endif]-->
-<title>RISE -Movement Platform </title>
+<title>RISE - Movement Platform</title>
 <meta name="description" content="">
 <meta name="author" content="WebThemez">
-<!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-<!--[if lte IE 8]>
-		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
-	<![endif]-->
+
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link href="css/animate.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="css/styles.css" />
 <link href="font/css/font-awesome.min.css" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,700" rel="stylesheet" type="text/css">
-
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,100,700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-
-
 <script src="https://use.fontawesome.com/88a44a09b2.js"></script>
-  
-  <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/dimsemenov/Magnific-Popup/master/dist/magnific-popup.css">
-
-      <link rel="stylesheet" href="css/style.css">
 <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-	
-<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/EGbODne6buzpTnWrrBprcfAY/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-zYfvuq6xV6aLevocYkVfLId59jcIkDZniQX2TsTt9LIa0Tf1ORHFh4oKI1naLgGF"></script>
-	
-<script>window.form = {"id":"2b6e62cf-79c8-11ef-8cd6-52aa82ddac22","list_id":"88a064be-0f30-4b96-9a6e-e52fd82f8ee3","user_id":41765990,"action":"","confirmation_message":"Thanks for signing up!","custom_css":"","description":"","fields":[{"input":{"attributes":{},"placeholder":"Please enter your first name.","required":true,"styles":{},"type":"text","value":"first_name"},"label":{"attributes":{},"styles":{},"value":"First Name"}},{"input":{"attributes":{},"placeholder":"Please enter your last name.","required":false,"styles":{},"type":"text","value":"last_name"},"label":{"attributes":{},"styles":{},"value":"Last Name"}},{"input":{"attributes":{},"placeholder":"Please enter your email.","required":true,"styles":{},"type":"text","value":"email"},"label":{"attributes":{},"styles":{},"value":"Email"}},{"input":{"attributes":{},"placeholder":"Please enter your location","required":false,"styles":{},"type":"text","value":"address_line_1"},"label":{"attributes":{},"styles":{},"value":"Location"}},{"input":{"attributes":{},"placeholder":"Please enter your message","required":false,"styles":{},"type":"text","value":"line"},"label":{"attributes":{},"styles":{},"value":"What drives your movment? Tell us more!  "}},{"input":{"attributes":{},"placeholder":"","required":true,"styles":{"background-color":"#ce7028","border-color":"#000000","border-radius":"4px","border-width":"0px","color":"#FFFFFF","padding":"12px 18px 12px 18px"},"type":"submit","value":"Submit"},"label":{"attributes":{},"styles":{},"value":""}}],"form_styles":{"background-color":"#000000","border-color":"#000000","border-radius":"4px","border-width":"0px","color":"#ffffff","padding":"20px 20px 20px 20px","width":"630"},"header":"","intro_copy":"","name":"Riseone.worl Join Form ","title":"","form_url":"https://cdn.forms-content-1.sg-form.com/2b6e62cf-79c8-11ef-8cd6-52aa82ddac22","recaptcha_key":"6Lfa9H0UAAAAAMAGt_pKuycKsKYFnIouFWeqInvd","submit_url":"https://api-1.sg-form.com/signup","created_at":"2024-09-23T16:23:30Z","updated_at":"2024-09-23T17:44:39Z"};</script>	
 
+<style>
+  /* ── RISE native form styles ── */
+  .rise-form-wrap {
+    background: #000;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 630px;
+    margin: 0 auto;
+    color: #fff;
+  }
+
+  .rise-form-wrap .form-group {
+    margin-bottom: 16px;
+  }
+
+  .rise-form-wrap label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .rise-form-wrap input[type="text"],
+  .rise-form-wrap input[type="email"] {
+    width: 100%;
+    padding: 10px 14px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+
+  .rise-form-wrap input[type="text"]:focus,
+  .rise-form-wrap input[type="email"]:focus {
+    outline: none;
+    border-color: #ce7028;
+  }
+
+  .rise-form-wrap input[type="text"]::placeholder,
+  .rise-form-wrap input[type="email"]::placeholder {
+    color: #666;
+  }
+
+  .rise-form-wrap .btn-rise {
+    background-color: #ce7028;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 18px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, transform 0.1s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .rise-form-wrap .btn-rise:hover {
+    background-color: #e07e30;
+  }
+
+  .rise-form-wrap .btn-rise:active {
+    transform: scale(0.98);
+  }
+
+  .rise-form-wrap .btn-rise:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Success / Error messages */
+  #rise-form-msg {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #rise-form-msg.success {
+    background: #1a3a1a;
+    border: 1px solid #2a6a2a;
+    color: #6fcf6f;
+  }
+
+  #rise-form-msg.error {
+    background: #3a1a1a;
+    border: 1px solid #6a2a2a;
+    color: #cf6f6f;
+  }
+
+  .required-star {
+    color: #ce7028;
+    margin-left: 3px;
+  }
+</style>
 </head>
 
 <body>
 
 <!--/.header-->
- 
+
 <section id="home">
   <div class="banner-container2">
     <div class="container">
-      <div class="row">
-         
-      </div>
+      <div class="row"></div>
       <div class="heading text-center">
-		 <div class="backleft"><a href="index.html"><img  class="backbutton"  src="images/backbutton.png" width="30px" ></a></div>
-		  <h2 style="padding-right:40px;"> Join the Waitlist! </h2>
-      <img src="images/riseapp-iphone1.png" width="1500px" alt="" />
-      
+        <div class="backleft"><a href="index.html"><img class="backbutton" src="images/backbutton.png" width="30px"></a></div>
+        <h2 style="padding-right:40px;"> Join the Waitlist! </h2>
+        <img src="images/riseapp-iphone1.png" width="1500px" alt="" />
       </div>
+      <div class="content"></div>
 
-
-
-<div class="content">
-
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/dimsemenov/Magnific-Popup/master/dist/jquery.magnific-popup.js"></script>
-
-    <script  src="js/index.js"></script>
-
-
-      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script src="https://cdn.rawgit.com/dimsemenov/Magnific-Popup/master/dist/jquery.magnific-popup.js"></script>
+      <script src="js/index.js"></script>
     </div>
   </div>
   <div class="spacer"></div>
 </section>
 
 
-
-
-
 <section id="contactUs" class="contact-parlex">
   <div class="parlex-back">
     <div class="container">
       <div class="row">
-        <div class="heading text-center"> 
-          <!-- Heading -->
+        <div class="heading text-center">
           <h3>Tell us how you want to get involved!</h3>
         </div>
       </div>
-      <div class="row">
-        
-                <iframe class="iframer" src="https://cdn.forms-content-1.sg-form.com/2b6e62cf-79c8-11ef-8cd6-52aa82ddac22"/>
 
-        
+      <div class="row">
+
+        <!-- ── Native form replaces broken iframe ── -->
+        <div class="rise-form-wrap">
+
+          <form id="rise-signup-form" novalidate>
+
+            <!-- First Name (required) -->
+            <div class="form-group">
+              <label for="rise_first_name">First Name<span class="required-star">*</span></label>
+              <input
+                type="text"
+                id="rise_first_name"
+                name="first_name"
+                placeholder="Please enter your first name."
+                required
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="rise_last_name">Last Name</label>
+              <input
+                type="text"
+                id="rise_last_name"
+                name="last_name"
+                placeholder="Please enter your last name."
+              />
+            </div>
+
+            <!-- Email (required) -->
+            <div class="form-group">
+              <label for="rise_email">Email<span class="required-star">*</span></label>
+              <input
+                type="email"
+                id="rise_email"
+                name="email"
+                placeholder="Please enter your email."
+                required
+              />
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+              <label for="rise_location">Location</label>
+              <input
+                type="text"
+                id="rise_location"
+                name="address_line_1"
+                placeholder="Please enter your location"
+              />
+            </div>
+
+            <!-- What drives your movement -->
+            <div class="form-group">
+              <label for="rise_line">What drives your movement? Tell us more!</label>
+              <input
+                type="text"
+                id="rise_line"
+                name="line"
+                placeholder="Please enter your message"
+              />
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+              <button type="submit" class="btn-rise" id="rise-submit-btn">Submit</button>
+            </div>
+
+          </form>
+
+          <!-- Feedback message -->
+          <div id="rise-form-msg"></div>
+
+        </div>
+        <!-- ── end native form ── -->
+
       </div>
     </div>
-    <!--/.container--> 
+    <!--/.container-->
   </div>
 </section>
+
+
 <footer>
   <div class="container">
-    <div class="social text-center"> <a href="https://www.facebook.com/risemovements/"><i class="fa fa-facebook"></i></a>  </div>
+    <div class="social text-center">
+      <a href="https://www.facebook.com/risemovements/"><i class="fa fa-facebook"></i></a>
+    </div>
     <div class="clear"></div>
-    <!--CLEAR FLOATS--> 
   </div>
 </footer>
-<!--/.page-section-->
+
 <section class="copyright">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center"> Copyright 2024 | Rise  </div>
+      <div class="col-sm-12 text-center">Copyright 2024 | Rise</div>
     </div>
-    <!-- / .row --> 
   </div>
 </section>
-<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a> 
 
-<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
-<script src="js/modernizr-latest.js"></script> 
-<script src="js/bootstrap.min.js" type="text/javascript"></script> 
-<script src="js/jquery.nav.js" type="text/javascript"></script> 
-<script src="js/waypoints.js"></script> 
-<script src="js/Backstretch.js" type="text/javascript"></script> 
-<script src="js/custom.js" type="text/javascript"></script> 
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
+<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+<script src="js/modernizr-latest.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.nav.js" type="text/javascript"></script>
+<script src="js/waypoints.js"></script>
+<script src="js/Backstretch.js" type="text/javascript"></script>
+<script src="js/custom.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.countdown.js"></script>
+
+<script>
+(function () {
+  // SendGrid form config — pulled from your existing window.form object
+  var SUBMIT_URL  = "https://api-1.sg-form.com/signup";
+  var LIST_ID     = "88a064be-0f30-4b96-9a6e-e52fd82f8ee3";
+  var USER_ID     = 41765990;
+  var FORM_ID     = "2b6e62cf-79c8-11ef-8cd6-52aa82ddac22";
+
+  var form    = document.getElementById("rise-signup-form");
+  var btn     = document.getElementById("rise-submit-btn");
+  var msgBox  = document.getElementById("rise-form-msg");
+
+  function showMsg(text, type) {
+    msgBox.textContent = text;
+    msgBox.className   = type;   // "success" or "error"
+    msgBox.style.display = "block";
+  }
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var firstName = document.getElementById("rise_first_name").value.trim();
+    var email     = document.getElementById("rise_email").value.trim();
+
+    // Client-side validation
+    if (!firstName) {
+      showMsg("Please enter your first name.", "error");
+      document.getElementById("rise_first_name").focus();
+      return;
+    }
+    if (!email || !validateEmail(email)) {
+      showMsg("Please enter a valid email address.", "error");
+      document.getElementById("rise_email").focus();
+      return;
+    }
+
+    // Build payload matching SendGrid's expected format
+    var payload = {
+      list_ids: [LIST_ID],
+      contacts: [{
+        first_name:    firstName,
+        last_name:     document.getElementById("rise_last_name").value.trim(),
+        email:         email,
+        address_line_1: document.getElementById("rise_location").value.trim(),
+        custom_fields: {
+          line: document.getElementById("rise_line").value.trim()
+        }
+      }]
+    };
+
+    btn.disabled    = true;
+    btn.textContent = "Submitting…";
+    msgBox.style.display = "none";
+
+    fetch(SUBMIT_URL, {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify(payload)
+    })
+    .then(function (res) {
+      if (res.ok || res.status === 202) {
+        showMsg("Thanks for signing up!", "success");
+        form.reset();
+      } else {
+        return res.text().then(function (body) {
+          throw new Error("Server responded with " + res.status + ": " + body);
+        });
+      }
+    })
+    .catch(function (err) {
+      console.error("Rise signup error:", err);
+      showMsg(
+        "Something went wrong — please try again or email us directly.",
+        "error"
+      );
+    })
+    .finally(function () {
+      btn.disabled    = false;
+      btn.textContent = "Submit";
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
-
